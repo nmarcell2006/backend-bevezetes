@@ -41,4 +41,40 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+//* router.get => ez hoz létre  egy GET végpontot
+//* Első paraméter: Az útvonalat határozza meg
+//* Második paraméter: A callback függvény => request, response
+//? Request => Az érkező kérés tartalma 
+//? Response => Az általunk adott válasz
+//* router.get('brunokiraly', (request, response) => {})
+router.get('brunoKiraly', (request, response) => {
+    response.status(200).json({
+        status: 'success',
+        message: 'Bruno Király'
+    });
+});
+
+//* Paraméter kezelése 
+router.get('/pokay/:valami/:valami2', (request, response) => {
+    const valami = request.params.valami; //* A paraméter mindig a kettőspont utáni rész lesz
+    const valami2 = request.params.valami2;
+
+    response.status(200).json({
+        valami: valami,
+        valami2: valami2,
+    });
+});
+
+
+//* POST végpont létrehozása
+router.post('/data', (request, response) => {
+    const data = request.body; //* A request.body tartalmazza a küldött POST adatok törzsét
+    console.log(data);
+
+    response.status(200).json({
+        receivedData: data
+    });
+});
+
+
 module.exports = router;
