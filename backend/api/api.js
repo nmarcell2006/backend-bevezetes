@@ -41,6 +41,38 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+const array = [] //Top Level Code
+router.post('/sendmessage', (request, response) => {
+    const body = request.body;
+    const sender = body.sender;
+    const message = body.message;
+
+    array.push({
+        sender: sender,
+        message: message
+    });
+    console.log(array);
+    response.status(200).json({
+        message: 'Üzenet fogadva.',
+    });
+});
+
+
+//2. Feladat
+const array1 = [];
+router.post('/saveData', (request, response) => {
+    array1.push(
+        { 
+            key: request.body.value
+        }
+    )
+    response.status(200).json({
+        message: 'Sikeres mentés',
+    });
+}
+
+
+
 //* router.get => ez hoz létre  egy GET végpontot
 //* Első paraméter: Az útvonalat határozza meg
 //* Második paraméter: A callback függvény => request, response

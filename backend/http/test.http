@@ -1,0 +1,31 @@
+GET http://127.0.0.1:3000/api/brunokiraly
+
+###
+GET http://127.0.0.1:3000/api/pokay/asd/asd2
+
+###
+Post http://127.0.0.1:3000/api/data
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 30,
+    "email": "john.doe@example.com"
+}
+
+###
+Post http://127.0.0.1:3000/api/sendMessage
+Content-Type: application/json
+
+{
+    "sender": "Szabi",
+    "message": "Ne menj estire"
+}
+
+###
+Post http://127.0.0.1:3000/api/saveData
+Content-Type: application/json
+
+{
+    value: "buzi"
+}
